@@ -10,18 +10,39 @@ namespace TestWeb
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
+        private IWebDriver driver;
 
-            var driver = GetChromeDriver();
-                driver.Navigate().GoToUrl("https://www.yahoo.com");
+        [TestMethod]
+        public void TestYahoo()
+        {
+      
+            // var driver = GetChromeDriver();
+            //     driver.Navigate().GoToUrl("https://www.yahoo.com");
+   
+                var yahooHomePage = new YahooHomePage(driver);
+                yahooHomePage.GoTo();
+                Assert.IsTrue(yahooHomePage.IsVisible);
         }
 
         private IWebDriver GetChromeDriver()
         {
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             return new ChromeDriver(outPutDirectory);
+        }
+    }
+
+    public class YahooHomePage
+    {
+        public YahooHomePage(object driver)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public bool IsVisible { get; set; }
+
+        public void GoTo()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }
