@@ -6,22 +6,22 @@ using OpenQA.Selenium.Chrome;
 
 namespace TestWeb
 {
-    
     [TestClass]
     public class UnitTest1
     {
-        private IWebDriver driver;
+        private IWebDriver driver { get; set; }
 
         [TestMethod]
+        [TestCategory("Yahoo")]
         public void TestYahoo()
         {
-      
             // var driver = GetChromeDriver();
             //     driver.Navigate().GoToUrl("https://www.yahoo.com");
-   
-                var yahooHomePage = new YahooHomePage(driver);
-                yahooHomePage.GoTo();
-                Assert.IsTrue(yahooHomePage.IsVisible);
+
+            driver = GetChromeDriver();
+            var yahooHomePage = new YahooHomePage(driver);
+            yahooHomePage.GoTo();
+            Assert.IsTrue(yahooHomePage.IsVisible);
         }
 
         private IWebDriver GetChromeDriver()
@@ -46,4 +46,3 @@ namespace TestWeb
         }
     }
 }
-
