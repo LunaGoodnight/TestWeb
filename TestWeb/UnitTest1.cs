@@ -9,17 +9,15 @@ namespace TestWeb
     [TestClass]
     public class UnitTest1
     {
-        private IWebDriver driver { get; set; }
+        private IWebDriver Driver { get; set; }
 
         [TestMethod]
         [TestCategory("Yahoo")]
         public void TestYahoo()
         {
-            // var driver = GetChromeDriver();
-            //     driver.Navigate().GoToUrl("https://www.yahoo.com");
 
-            driver = GetChromeDriver();
-            var yahooHomePage = new YahooHomePage(driver);
+            Driver = GetChromeDriver();
+            var yahooHomePage = new YahooHomePage(Driver);
             yahooHomePage.GoTo();
             Assert.IsTrue(yahooHomePage.IsVisible);
         }
@@ -28,21 +26,6 @@ namespace TestWeb
         {
             var outPutDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             return new ChromeDriver(outPutDirectory);
-        }
-    }
-
-    public class YahooHomePage
-    {
-        public YahooHomePage(object driver)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public bool IsVisible { get; set; }
-
-        public void GoTo()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
