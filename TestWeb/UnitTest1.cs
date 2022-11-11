@@ -20,6 +20,8 @@ namespace TestWeb
             var yahooHomePage = new YahooHomePage(Driver);
             yahooHomePage.GoTo();
             Assert.IsTrue(yahooHomePage.IsVisible);
+            // Opens a new tab and switches to new tab
+            Driver.SwitchTo().NewWindow(WindowType.Tab);
         }
 
         private IWebDriver GetChromeDriver()
